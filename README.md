@@ -1,6 +1,6 @@
 # Ngrams
 
-Gain experience creating ngrams from text, build a language model from those ngrams, and reflect on the utility of our language model. We created and used bigram and unigram dictionaries from English, French, and Italian to calculate probabilities of each language against test data.
+Gain experience creating ngrams from text, build a language model from those ngrams, and [reflect](NgramsNarrative.pdf) on the utility of our language model. We created and used bigram and unigram dictionaries from English, French, and Italian to calculate probabilities of each language against test data.
 <br>This is our fourth assignment as a part of Professor Mazidi's Spring 2023 Human Language Technologies (Natural Language Processing) course at UTD.
 
 
