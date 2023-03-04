@@ -1,11 +1,12 @@
 # Homework 4.1
 # Crystal Ngo and Kiara Madeam
+# https://github.com/cmn180003/NLP-Portfolio
+# https://github.com/kiara-aleecia/nlp-portfolio
 
 import sys
 import pathlib
 import nltk
 from nltk import word_tokenize
-import re
 import pickle
 
 '''
@@ -32,7 +33,7 @@ Args:
 Returns: dict, dict
     unigram dictionary and bigram dictionary
 '''
-def make_language_model(filename):
+def make_language_model(filename: str) -> tuple[dict[str, int], dict[tuple[str, str], int]]:
     
     # Reads file
     rel_path = sys.argv[1] + '/' + filename
@@ -43,11 +44,9 @@ def make_language_model(filename):
     tokens = word_tokenize(text_in)
     # Makes unigrams list
     unigrams = tokens
-    #print(unigrams)
 
     # Makes bigrams list
     bigrams = [(unigrams[k], unigrams[k + 1]) for k in range(len(unigrams) - 1)]
-    #print(bigrams)
 
     # Makes unigram dictionary {str:int}
     uni_dict = {t:unigrams.count(t) for t in set(unigrams)}
@@ -63,7 +62,6 @@ Args:
 Returns:
     n/a (prints done message)
 '''
-
 def main():
     # make uni/bi dict for each language
     eng_uni, eng_bi = make_language_model('LangId.train.English')
@@ -92,7 +90,6 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Usage: python3 ngrams1.py data")
         quit()
-     #rel_path = sys.argv[1]
 
 main()
     

@@ -1,14 +1,14 @@
-# Homework 4.1
+# Homework 4.2
 # Crystal Ngo and Kiara Madeam
+# https://github.com/cmn180003/NLP-Portfolio
+# https://github.com/kiara-aleecia/nlp-portfolio
 
 import sys
 import pathlib
 import nltk
 from nltk import word_tokenize
 from nltk.util import ngrams
-#import re
 import pickle
-import math
 
 '''
 TO DO:
@@ -29,7 +29,7 @@ Args: string, dict{tuple(str, str): int}, dict{str: int}, list[str]
 Returns: double
     probability w/ laplace smoothing
 '''
-def test_language_model(line, bi_dict, uni_dict, V):
+def test_language_model(line: str, bi_dict: dict[tuple[str, str], int], uni_dict: dict[str, int], V: int) -> float:
     unigrams_test = word_tokenize(line)
     bigrams_test = list(ngrams(unigrams_test, 2))
     
@@ -63,13 +63,11 @@ def main():
 
     # open file to write guesses and read in test file lines
     res_file = open('calculate_language.txt', 'w')
-    #rel_path = sys.argv[1] + '/' + filename
     with open(pathlib.Path.cwd().joinpath(filename), 'r', encoding='utf8') as f:
         text_in = f.read().splitlines()
 
     # calculate probability for each language and write to file
     vocab = eng_uni | fr_uni | it_uni
-    #N = len(vocab)
     V = len(set(vocab))
 
     # test probability for each language and write most probable to file
@@ -94,7 +92,6 @@ def main():
     
     # check against .sol file and output accuracy and lines missed
     filename = 'data/LangId.sol'
-    #rel_path = sys.argv[1] + '/' + filename
     with open(pathlib.Path.cwd().joinpath(filename), 'r', encoding='utf8') as f:
         text_in = f.read().splitlines()
     answers = [tuple(line.split()) for line in text_in]
